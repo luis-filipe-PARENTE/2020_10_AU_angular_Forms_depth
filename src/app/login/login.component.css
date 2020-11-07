@@ -19,4 +19,14 @@
   margin-bottom: 10px;
 }
 
+input.ng-invalid.ng-touched {
+  border: 3px solid red;
+}
 
+/*
+:host-context(mat-sidenav-container) {
+  display: block;
+  border: 1px solid black;
+  background-color: brown;
+}
+*/
