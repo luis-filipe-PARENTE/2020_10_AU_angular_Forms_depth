@@ -6,11 +6,14 @@
       <mat-form-field appearance="fill">
         <input 
             matInput 
-            type="number" 
+            type="text" 
             name="secureCode"
             ngModel
             #secureCode="ngModel"
-            placeholder="Personal secure code">
+            placeholder="Personal secure code"
+            pattern="[a-z]+">
+
+            <mat-error *ngIf="secureCode.errors?.pattern">You should only have low chars</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -21,9 +24,12 @@
                ngModel
                #email="ngModel"
                placeholder="Email"
-               required>
+               required
+               email
+               minlength="5">
                
-
+            <mat-error *ngIf="email.errors?.required">The email is mandatory</mat-error>
+            <mat-error *ngIf="email.errors?.email">The field email is invalid</mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -34,7 +40,8 @@
           ngModel
           #password="ngModel"
           placeholder="Password"
-          required>
+          required
+          minlength="5">
       </mat-form-field>
 
       <button mat-raised-button
@@ -51,6 +58,7 @@
         {{secureCode.value}}
         {{email.value}}
         {{password.value}}
+        {{email.errors | json}}
     </div>
 
   </mat-card-content>
