@@ -9,6 +9,7 @@
             type="text" 
             name="secureCode"
             ngModel
+            [ngModelOptions]="{updateOn: 'submit'}"
             #secureCode="ngModel"
             placeholder="Personal secure code"
             pattern="[a-z]+">
@@ -23,6 +24,8 @@
                type="email"
                ngModel
                #email="ngModel"
+               [ngModelOptions]="{updateOn: 'blur'}"
+               (ngModelChange)="onEmailChange($event)"
                placeholder="Email"
                required
                email
@@ -39,6 +42,7 @@
           name="password" 
           ngModel
           #password="ngModel"
+          [ngModelOptions]="{updateOn: 'change'}"
           placeholder="Password"
           required
           minlength="5">
