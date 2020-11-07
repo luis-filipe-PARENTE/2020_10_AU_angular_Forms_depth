@@ -16,11 +16,13 @@
       <mat-form-field appearance="outline">
 
         <input matInput 
-               type="email"
                name="email"
+               type="email"
                ngModel
                #email="ngModel"
-               placeholder="Email">
+               placeholder="Email"
+               required>
+               
 
       </mat-form-field>
 
@@ -31,12 +33,14 @@
           name="password" 
           ngModel
           #password="ngModel"
-          placeholder="Password">
+          placeholder="Password"
+          required>
       </mat-form-field>
 
       <button mat-raised-button
               color="primary"
-              (click)="login(loginForm)">
+              (click)="login(loginForm)"
+              [disabled]="!loginForm.valid">
         Login
       </button>
     </form>
