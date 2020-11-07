@@ -7,7 +7,9 @@
         <input 
             matInput 
             type="number" 
-            name="secure code"
+            name="secureCode"
+            ngModel
+            #secureCode="ngModel"
             placeholder="Personal secure code">
       </mat-form-field>
 
@@ -16,6 +18,8 @@
         <input matInput 
                type="email"
                name="email"
+               ngModel
+               #email="ngModel"
                placeholder="Email">
 
       </mat-form-field>
@@ -24,6 +28,9 @@
         <input 
           matInput 
           type="password" 
+          name="password" 
+          ngModel
+          #password="ngModel"
           placeholder="Password">
       </mat-form-field>
 
@@ -33,6 +40,14 @@
         Login
       </button>
     </form>
+
+    <div class="form-val"> 
+        {{loginForm.value | json}}
+        <br/>
+        {{secureCode.value}}
+        {{email.value}}
+        {{password.value}}
+    </div>
 
   </mat-card-content>
 </mat-card>
