@@ -9,6 +9,12 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  val = {
+    secureCode: 'securecodexxx',
+    email: 'hello@gmail.com',
+    password: 'password123'
+  };
+
   constructor() {}
 
   ngOnInit() {}
@@ -18,7 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
   onEmailChange(event: Event) {
-    console.log(event)
+    console.log(event);
+    console.log({val: this.val});
   }
 
 }

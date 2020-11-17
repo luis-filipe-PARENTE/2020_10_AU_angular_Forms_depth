@@ -8,8 +8,8 @@
             matInput 
             type="text" 
             name="secureCode"
-            ngModel
-            [ngModelOptions]="{updateOn: 'submit'}"
+            [(ngModel)]="val.secureCode"
+            [ngModelOptions]="{updateOn: 'change'}"
             #secureCode="ngModel"
             placeholder="Personal secure code"
             pattern="[a-z]+">
@@ -22,14 +22,15 @@
         <input matInput 
                name="email"
                type="email"
-               ngModel
+               [(ngModel)]="val.email"
                #email="ngModel"
-               [ngModelOptions]="{updateOn: 'blur'}"
+               [ngModelOptions]="{updateOn: 'change'}"
                (ngModelChange)="onEmailChange($event)"
                placeholder="Email"
                required
                email
-               minlength="5">
+               minlength="5" 
+               maxlength="20">
                
             <mat-error *ngIf="email.errors?.required">The email is mandatory</mat-error>
             <mat-error *ngIf="email.errors?.email">The field email is invalid</mat-error>
@@ -40,7 +41,7 @@
           matInput 
           type="password" 
           name="password" 
-          ngModel
+          [(ngModel)]="val.password"
           #password="ngModel"
           [ngModelOptions]="{updateOn: 'change'}"
           placeholder="Password"
